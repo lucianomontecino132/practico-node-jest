@@ -34,3 +34,6 @@ En el paso 5 de la parte 3 del trabajo, las que detectó al cambiar ese 100 por 
 2- Aplica 100% a 10000 centavos
 3- Aplica 15% a 10001 centavos
 
+Al hacer el paso 6, agregue dos casos a los tests para comprobar que:
+1- El sistema no falle al procesar porcentajes con decimales
+2- Que el acumulador de la suma no sufra desbordamientos o errores logicos al procesar volumenes mas altos de transacciones en el mismo carrito

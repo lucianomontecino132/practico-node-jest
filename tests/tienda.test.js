@@ -52,6 +52,16 @@ describe('precioFinal', () => {
     // Comprobar errores con función flecha
     expect(() => precioFinal(10000, 101)).toThrow(TypeError);
   });
+
+  test('aplica un porcentaje con decimales (12.5%) y redondea correctamente', () => {
+    // Preparar: 12.5% de 8000 es 1000, entonces el precio final debe ser 7000
+    const precio = 8000;
+    const porcentaje = 12.5;
+    // Actuar
+    const resultado = precioFinal(precio, porcentaje);
+    // Comprobar
+    expect(resultado).toBe(7000);
+  });
 });
 
 describe('calcularSubtotal', () => {
@@ -100,5 +110,13 @@ describe('calcularSubtotal', () => {
 
     // Verificamos con toEqual que el arreglo y su contenido no hayan mutado
     expect(carritoOriginal).toEqual(copiaOriginal);
+  });
+
+  test('suma correctamente un carrito con múltiples productos y cantidades grandes', () => {
+    const carrito = [
+      { precioCentavos: 15000, cantidad: 4 }, // 60000
+      { precioCentavos: 2500, cantidad: 10 }   // 25000
+    ];
+    expect(calcularSubtotal(carrito)).toBe(85000);
   });
 });
